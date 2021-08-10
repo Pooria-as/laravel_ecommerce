@@ -2,7 +2,8 @@
  --}}
  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="{{ asset("Dashboard/lib/popper.js/popper.js") }}"></script>
-<script src="{{ asset("Dashboard/bootstrap/bootstrap.js") }}"></script>
+
+<script src="{{ asset("Dashboard/lib/bootstrap/bootstrap.js") }}"></script>
 <script src="{{ asset("Dashboard/lib/jquery-ui/jquery-ui.js") }}"></script>
 <script src="{{ asset("Dashboard/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js") }}"></script>
 <script src="{{ asset("Dashboard/lib/jquery.sparkline.bower/jquery.sparkline.min.js") }}"></script>

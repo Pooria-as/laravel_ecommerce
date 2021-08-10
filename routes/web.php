@@ -21,6 +21,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('Category', "Admin\Category\CategoryController");
 });
 
+Route::get("LogOut","HomeController@logout")->name("LogOut");
 
 Auth::routes();
 
