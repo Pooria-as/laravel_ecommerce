@@ -17,6 +17,10 @@ Route::middleware("auth")->get('admin', function () {
     return view("Dashboard.layout.master");
 });
 
+Route::prefix('admin')->group(function () {
+    Route::resource('Category', "Admin\Category\CategoryController");
+});
+
 
 Auth::routes();
 
