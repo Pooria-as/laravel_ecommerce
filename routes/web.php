@@ -23,6 +23,21 @@ Route::prefix('admin')->group(function () {
 
 Route::get("LogOut","HomeController@logout")->name("LogOut");
 
+
+Route::get('/', function () {
+
+    return view("front.index");
+
+});
+
+
+
+
+
+
+
+
+
 Auth::routes();
 
 
