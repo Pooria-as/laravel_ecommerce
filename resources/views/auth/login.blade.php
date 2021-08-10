@@ -86,6 +86,11 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
             </span>
         @enderror
 
+        @if (Route::has('password.request'))
+        <a style="color: white;" href="{{ route('password.request') }}">
+            {{ __('Forgot Your Password?') }}
+        </a>
+    @endif
 
             <button type="submit" class="btn btn-primary btn-block btn-large">Log in :)     </button>
         </form>

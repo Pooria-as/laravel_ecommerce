@@ -8,7 +8,10 @@ Shop Panel
       <button class="btn"><i class="fa fa-search"></i></button>
     </span><!-- input-group-btn -->
   </div><!-- input-group -->
-
+  <form action="{{ route("logout") }}" method="POST">
+@csrf
+<button type="submit" >logout</button>
+</form>
   <label class="sidebar-label">Navigation</label>
   <div class="sl-sideleft-menu">
     <a href="index.html" class="sl-menu-link active">
