@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Admin\Category;
-
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryValidation;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -14,57 +16,23 @@ class CategoryController extends Controller
         $this->middleware("auth");
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $categories=Category::all();
+
+        return view("Dashboard.Category.index",compact("categories"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(CategoryValidation $request)
     {
-        //
+        Category::create($request->all());
+        return redirect()->route("Category.index")->with("message","category added Successfully");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function edit(Category $Category)
     {
-        //
-    }
+         return view("Dashboard.Category.edit",compact("Category"));
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
@@ -74,9 +42,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryValidation $request,Category $Category)
     {
-        //
+        $Category->update($request->all());
+        return redirect()->route("Category.index")->with("info","category Edited Successfully");
+
     }
 
     /**
@@ -85,8 +55,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $Category)
     {
-        //
+        $Category->delete();
+        return redirect()->route("Category.index")->with("warning","category Deleted Successfully");
+
     }
 }

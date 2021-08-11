@@ -26,7 +26,7 @@ Shop Panel
       </div><!-- menu-item -->
     </a><!-- sl-menu-link -->
     <ul class="sl-menu-sub nav flex-column">
-      <li class="nav-item"><a href="chart-morris.html" class="nav-link">Category</a></li>
+      <li class="nav-item"><a href="{{ route("Category.index") }}" class="nav-link">Category</a></li>
       <li class="nav-item"><a href="chart-flot.html" class="nav-link">SubCategory</a></li>
       <li class="nav-item"><a href="chart-chartjs.html" class="nav-link">Brand</a></li>
     </ul>

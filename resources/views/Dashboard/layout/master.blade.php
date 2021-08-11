@@ -29,15 +29,26 @@
 
     <!-- ########## START: MAIN PANEL ########## -->
 
-    <div class="container">
-        @yield('content')
+    <div class="sl-mainpanel">
+        <nav class="breadcrumb sl-breadcrumb">
+          <a class="breadcrumb-item">Shop Panel</a>
+          <a class="breadcrumb-item">@yield('Location')</a>
+          <span class="breadcrumb-item active">@yield("page")</span>
+        </nav>
+
+        <div class="sl-pagebody">
+            @yield('content')
+          </div>
+
     </div>
-
-
         {{-- @include("Dashboard.layout.Partials.MainPannel") --}}
    <!-- sl-mainpanel -->
     <!-- ########## END: MAIN PANEL ########## -->
 
    @include("Dashboard.layout.Partials.scripts")
+
+
   </body>
+
+
 </html>
