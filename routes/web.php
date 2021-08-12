@@ -20,6 +20,7 @@ Route::middleware("auth")->get('admin', function () {
 Route::prefix('admin')->group(function () {
     Route::resource('Category', "Admin\Category\CategoryController");
     Route::resource('Brand',"Admin\Category\BrandController");
+    Route::resource('SubCategory',"Admin\Category\SubCategoryController");
 });
 
 Route::get("LogOut","HomeController@logout")->name("LogOut");
