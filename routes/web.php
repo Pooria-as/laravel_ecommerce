@@ -21,6 +21,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('Category', "Admin\Category\CategoryController");
     Route::resource('Brand',"Admin\Category\BrandController");
     Route::resource('SubCategory',"Admin\Category\SubCategoryController");
+    Route::resource('Coupon',"Admin\Category\CouponController");
 });
 
 Route::get("LogOut","HomeController@logout")->name("LogOut");

@@ -53,16 +53,11 @@ class SubCategoryController extends Controller
      */
     public function update(Request $request,SubCategory $SubCategory)
     {
-        // dd($request->all());
         $SubCategory->update([
             "SubCategory_name"=>$request->SubCategory_name,
             "category_id"=>$request->category_id
         ]);
-
-
-        // return true;
         return redirect(route("SubCategory.index"))->with("info","Subcategory updated successfuly");
-
     }
 
     /**

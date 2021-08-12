@@ -29,7 +29,9 @@ Shop Panel
       <li class="nav-item"><a href="{{ route("Category.index") }}" class="nav-link">Category</a></li>
       <li class="nav-item"><a href="{{ route("SubCategory.index") }}" class="nav-link">SubCategory</a></li>
       <li class="nav-item"><a href="{{ route("Brand.index") }}" class="nav-link">Brand</a></li>
+      <li class="nav-item"><a href="{{ route("Coupon.index") }}" class="nav-link">Coupon</a></li>
     </ul>
+
     <a href="#" class="sl-menu-link">
       <div class="sl-menu-item">
         <i class="menu-item-icon icon ion-ios-gear-outline tx-24"></i>
