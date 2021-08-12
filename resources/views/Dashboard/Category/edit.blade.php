@@ -1,6 +1,7 @@
 @extends("Dashboard.layout.master")
 @section("content")
-
+@section("Location","Category")
+@section("page","Edit")
 
 <div class="card">
     <div class="card-header">

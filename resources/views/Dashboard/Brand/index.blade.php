@@ -1,17 +1,20 @@
 @extends("Dashboard.layout.master")
-@section("Page_Title","category")
-@section("content")
 @section("Location","Category")
-@section("page","Categories")
+@section("page","Brands")
+@section("Page_Title","Brnads")
+@section("content")
+
+
+
 
 <div class="card">
 
     <div class="card-header">
         <a  class="btn btn-success float-right m-2" style="color: white !important;" data-toggle="modal" data-target="#exampleModal">
-         New Category
+         New brnad
         </a>
        <h3>
-           All Category
+           All brnad
        </h3>
     </div>
     <div class="card-body">
@@ -21,7 +24,8 @@
               <thead>
                 <tr>
                   <th class="wd-15p">#</th>
-                  <th class="wd-15p">Category</th>
+                  <th class="wd-15p">Brand Name</th>
+                  <th class="wd-15p">Brand logo</th>
                   <th class="wd-20p">Action</th>
                 </tr>
               </thead>
@@ -29,18 +33,21 @@
             @php
                 $row=1;
             @endphp
-              @foreach ($categories as $category)
+              @foreach ($Brands as $Brand)
 
                   <tr>
                     <td>
                       {{ $row++; }}
                     </td>
                     <td>
-                        {{ $category->Category_name}}
+                        {{ $Brand->Brand_name}}
                     </td>
                     <td>
-                        <a href="{{ route("Category.edit",$category->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                        <form action="{{ route("Category.destroy",$category->id) }}" method="POST">
+                        <img src="/{{ $Brand->Brand_logo }}" width="50" alt="">
+                    </td>
+                    <td>
+                        <a href="{{ route("Brand.edit",$Brand->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                        <form action="{{ route("Brand.destroy",$Brand->id) }}" method="POST">
                             @csrf
                             @method("DELETE")
                             {{-- <button class="btn btn-sm m-1 btn-danger delete" type="submit">Delete</button> --}}
@@ -57,60 +64,65 @@
 </div>
 
 
-
-
-<!-- Button trigger modal -->
-
-
-<!-- Modal new category -->
+<!-- Modal new Brand -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New Category</h5>
+        <h5 class="modal-title" id="exampleModalLabel">New Brand</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-          <form method="POST" action="{{ route("Category.store") }}">
+          <form method="POST" action="{{ route('Brand.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <input type="text" class="form-control" name="Category_name">
-                @error("Category_name")
+                <input type="text" class="form-control" name="Brand_name" placeholder="Brand Name">
+                @error("Brand_name")
                     <span class="badge badge-danger">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="modal-footer">
-                <div class="row">
-                    <div class="col-md-6"><button class="btn btn-success btn-block" type="submit">Save</button></div>
-                    <div class="col-md-6"><button class="btn btn-danger btn-block" data-dismiss="modal">Close</button></div>
-                </div>
+            <div class="form-group">
+                <input type="file" class="form-control" name="Brand_logo">
+                @error("Brand_logo")
+                <span class="badge badge-danger">{{ $message }}</span>
+                @enderror
+                <br>
+                <button class="btn btn-success btn-block" type="submit">Save</button>
+                <button class="btn btn-danger btn-block" data-dismiss="modal">Close</button>
             </div>
         </form>
       </div>
-
     </div>
   </div>
 </div>
 
-{{--
-<script>
-$(".delete").click(function () {
-  Swal.fire({
-    title: "Are you sure Delete this category?",
-    type: "info",
-    showCancelButton: true,
-    confirmButtonText: "Delete It",
-    confirmButtonColor: "#ff0055",
-    cancelButtonColor: "#999999",
-    reverseButtons: true,
-    focusConfirm: false,
-    focusCancel: true
-  });
 
-});
 
-</script> --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @endsection
