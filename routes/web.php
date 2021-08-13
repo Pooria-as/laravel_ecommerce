@@ -22,6 +22,8 @@ Route::prefix('admin')->group(function () {
     Route::resource('Brand',"Admin\Category\BrandController");
     Route::resource('SubCategory',"Admin\Category\SubCategoryController");
     Route::resource('Coupon',"Admin\Category\CouponController");
+    Route::resource('NewLater',"front\NewLaterController");
+
 });
 
 Route::get("LogOut","HomeController@logout")->name("LogOut");
@@ -31,7 +33,7 @@ Route::get('/', function () {
 
     return view("front.index");
 
-});
+})->name("index");
 
 
 
