@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Product\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -17,22 +18,21 @@ Route::middleware("auth")->get('admin', function () {
     return view("Dashboard.layout.master");
 });
 
-Route::prefix('admin')->group(function () {
+Route::middleware("auth")->prefix('admin')->group(function () {
     Route::resource('Category', "Admin\Category\CategoryController");
     Route::resource('Brand',"Admin\Category\BrandController");
     Route::resource('SubCategory',"Admin\Category\SubCategoryController");
     Route::resource('Coupon',"Admin\Category\CouponController");
     Route::resource('NewLater',"front\NewLaterController");
-
+    Route::resource('Product',"Admin\Product\ProductController");
+    Route::get('Product/ActiveStatus/{Product}',"Admin\Product\ProductController@ActiveStatus")->name("activeStatus");
+    Route::get('Product/DeActiveStatus/{Product}',"Admin\Product\ProductController@DeActiveStatus")->name("DeActiveStatus");
+    Route::get('/get/subcategory/{category_id}',"Admin\Product\ProductController@getSubCategory")->name("getSubcategory");
 });
 
 Route::get("LogOut","HomeController@logout")->name("LogOut");
-
-
 Route::get('/', function () {
-
     return view("front.index");
-
 })->name("index");
 
 
