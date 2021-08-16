@@ -19,6 +19,8 @@ class SubCategory extends Model
         return $this->belongsTo(Category::class);
     }
 
+
+
     public static function Store($category,$subcategory)
     {
         SubCategory::create(

@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger("brand_id")->nullable();
             $table->foreign("brand_id")->references("id")->on("brands");
             $table->unsignedBigInteger("subcategory_id")->nullable();
+            $table->foreign("subcategory_id")->references("id")->on("sub_categories");
             $table->string("product_name");
             $table->string("slug")->unique();
             $table->string("product_code");

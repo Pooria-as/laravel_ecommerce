@@ -3,6 +3,12 @@
 @section("page","All Product")
 @section("Page_Title","Products")
 @section("content")
+<style>
+    .dis{
+        display:flex;
+
+    }
+</style>
 <div class="card">
     <div class="card-header">
         <a href="{{ route("Product.create") }}" class="btn btn-success float-right">
@@ -55,30 +61,27 @@
                         {!! $product->ActiveOrInActiveStatus($product) !!}
                     </td>
 
-                    <td>
-                        <a href="{{ route("Product.edit",$product->id) }}" class="btn btn-sm btn-primary">
+                    <td class="dis">
+                        <a href="{{ route("Product.edit",$product->id) }}" class="btn btn-sm  btn-primary">
                               <i class="fa fa-edit"></i>
                             </a>
                         <form action="{{ route("Product.destroy",$product->id) }}" method="POST">
                             @csrf
                             @method("DELETE")
                             {{-- <button class="btn btn-sm m-1 btn-danger delete" type="submit">Delete</button> --}}
-                            <button class=" btn btn-sm m-1 btn-danger" type="submit" onclick="return confirm('Do you want to delete this?');">
+                            <button class="btn btn-sm  btn-danger" type="submit" onclick="return confirm('Do you want to delete this?');">
                                 <i class="fa fa-trash"></i>
                             </button>
                         </form>
-                        <a href="{{ route("Product.show",$product->id) }}" class="btn btn-sm btn-warning">
+                        <a href="{{ route("Product.show",$product->id) }}" class="btn btn-sm  btn-warning">
                             <i class="fa fa-eye"></i>
                         </a>
-
-
-                        @if ($product->status!=1)
-                        <a href="{{ route("activeStatus",$product->id) }}" class="btn btn-sm btn-success"><i class="fa fa-thumbs-up"></i></a>
+                         @if ($product->status!=1)
+                        <a href="{{ route("activeStatus",$product->id) }}" class="btn btn-sm  btn-success"><i class="fa fa-thumbs-up"></i></a>
                         @else
-                        <a href="{{ route("DeActiveStatus",$product->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-thumbs-down"></i></a>
-
+                        <a href="{{ route("DeActiveStatus",$product->id) }}" class="btn btn-sm  btn-danger"><i class="fa fa-thumbs-down"></i></a>
                         @endif
-
+                    {{-- {{ $product->ActiveProduct($product) }} --}}
 
                     </td>
                 </tr>

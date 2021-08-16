@@ -20,6 +20,8 @@ class Product extends Model
    {
        return $this->belongsTo(Category::class);
    }
+
+
    public function ActiveOrInActiveStatus($product)
    {
        if($product->status==1)
@@ -32,21 +34,23 @@ class Product extends Model
 
        }
    }
+
 //    public function ActiveProduct(Product $Product)
 //    {
 //        if($Product->status==1)
 //        {
-//            $ActiveStatus=route("activeStatus",$Product->id);
-//       return   '<a href="{$ActiveStatus}" class="btn btn-sm btn-danger"><i class="fa fa-thumbs-down"></i></a>';
+
+//         //    $ActiveStatus=route("activeStatus",$Product->id);
+
+//       echo '<a href="Admin/Product/ActiveStatus/".$Product." class="btn btn-sm btn-danger"><i class="fa fa-thumbs-down"></i></a>';
+
 //        }
 //        else
 //        {
-//         $DeActiveStatus=route("DeActiveStatus",$Product->id);
+//         // $DeActiveStatus=route("DeActiveStatus",$Product->id);
 
-//        return '<a href="{$DeActiveStatus}" class="btn btn-sm btn-success"><i class="fa fa-thumbs-up"></i></a>';
+//        echo '<a href="Admin/Product/DeActiveStatus/".<?php echo $Product->id; ." class="btn btn-sm btn-success"><i class="fa fa-thumbs-up"></i></a>';
 //        }
-
-
-
+//     }
 
 }

@@ -103,7 +103,16 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $Product = DB::table('products')
+    				->join('categories','products.category_id','categories.id')
+    				->join('sub_categories','products.subcategory_id','sub_categories.id')
+    				->join('brands','products.brand_id','brands.id')
+    				->select("*")
+    				->where('products.id',$id)
+    				->first();
+
+
+        return view("Dashboard.Product.show",compact("Product"));
     }
 
     /**

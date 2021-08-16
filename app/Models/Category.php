@@ -10,16 +10,12 @@ class Category extends Model
 
     protected $fillable=['Category_name'];
 
-    /**
-     * Get all of the comments for the Category
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function subcategories()
-    {
-        return $this->hasMany(SubCategory::all());
-    }
 
+
+    public function SubCategories()
+    {
+        return $this->hasMany(SubCategory::class);
+    }
 
     public function Product()
     {

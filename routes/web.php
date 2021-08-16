@@ -28,6 +28,9 @@ Route::middleware("auth")->prefix('admin')->group(function () {
     Route::get('Product/ActiveStatus/{Product}',"Admin\Product\ProductController@ActiveStatus")->name("activeStatus");
     Route::get('Product/DeActiveStatus/{Product}',"Admin\Product\ProductController@DeActiveStatus")->name("DeActiveStatus");
     Route::get('/get/subcategory/{category_id}',"Admin\Product\ProductController@getSubCategory")->name("getSubcategory");
+    Route::resource('Post',"Admin\PostController");
+    Route::resource('BlogCategory',"Admin\BlogCategoryController");
+
 });
 
 Route::get("LogOut","HomeController@logout")->name("LogOut");
