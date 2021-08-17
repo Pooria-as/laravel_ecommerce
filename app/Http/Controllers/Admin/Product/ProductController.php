@@ -181,9 +181,7 @@ class ProductController extends Controller
             $image_three->move($image_location,$image_name_three);
             unlink($old_image_three);
             $Product->update([
-
                 "image_three"=>$last_image_three,
-
             ]);
         }
         else{

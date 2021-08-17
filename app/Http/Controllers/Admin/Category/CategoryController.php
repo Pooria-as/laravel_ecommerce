@@ -45,7 +45,7 @@ class CategoryController extends Controller
     public function update(CategoryValidation $request,Category $Category)
     {
         $Category->update($request->all());
-        return redirect()->route("Category.index")->with("info","category Edited Successfully");
+            return redirect()->route("Category.index")->with("info","category Edited Successfully");
 
     }
 

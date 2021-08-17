@@ -165,7 +165,10 @@
                     <img src="/{{ $Product->image_one }}" id="image_one" alt=""  class="img-thumbnail">
                     <input type="hidden" name="old_image_one" value="{{ $Product->image_one }}">
                     <br>
-
+                    @error("image_one")
+                        <br>
+                        <span class="badge badge-danger">{{ $message }}</span>
+                    @enderror
 
                 </div>
                 <div class="col-md-4">

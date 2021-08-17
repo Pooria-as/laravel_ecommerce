@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Post_Category extends Model
 {
     protected $fillable = ['category_name_EN','category_name_FA'];
+
+
+    /**
+     * Get all of the comments for the Post_Category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

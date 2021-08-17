@@ -23,7 +23,7 @@
             <div class="form-group">
                 <input type='file' name="Brand_logo" class="form-control" onchange="readURL(this);" />
                 <label for="old_image">old Image</label>
-                <img src="/{{ $Brand->Brand_logo }}" width="100" class="img img-thumnail" id="old_image"  alt="">
+                <img src="/{{ $Brand->Brand_logo }}" width="100"  class="img img-thumnail" id="old_image"  alt="">
             </div>
             <img id="blah" src=""  alt="" />
             <div class="form-group">
