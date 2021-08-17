@@ -3,7 +3,11 @@
 @section("content")
 @section("Location","Category")
 @section("page","Categories")
-
+<style>
+    .dis{
+        display: flex;
+    }
+</style>
 <div class="card">
 
     <div class="card-header">
@@ -38,13 +42,13 @@
                     <td>
                         {{ $category->Category_name}}
                     </td>
-                    <td>
+                    <td class="dis">
                         <a href="{{ route("Category.edit",$category->id) }}" class="btn btn-sm btn-primary">Edit</a>
                         <form action="{{ route("Category.destroy",$category->id) }}" method="POST">
                             @csrf
                             @method("DELETE")
                             {{-- <button class="btn btn-sm m-1 btn-danger delete" type="submit">Delete</button> --}}
-                            <button class=" btn btn-sm m-1 btn-danger" type="submit" onclick="return confirm('Do you want to delete this?');">Delete</button>
+                            <button class=" btn btn-sm  btn-danger" type="submit" onclick="return confirm('Do you want to delete this?');">Delete</button>
                         </form>
                     </td>
                 </tr>

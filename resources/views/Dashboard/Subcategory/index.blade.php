@@ -3,6 +3,12 @@
 @section("page","SubCategory")
 @section("Page_Title","All Subcategory")
 @section("content")
+
+<style>
+    .dis{
+        display: flex;
+    }
+</style>
 <div class="card">
     <div class="card-header">
         <a  class="btn btn-success float-right m-2" style="color: white !important;" data-toggle="modal" data-target="#exampleModal">
@@ -40,13 +46,13 @@
                         {{-- {{ $Subcategory->category->Category_name }} --}}
                         {{ $Subcategory->category->Category_name }}
                     </td>
-                    <td>
+                    <td class="dis">
                         <a href="{{ route("SubCategory.edit",$Subcategory->id) }}" class="btn btn-sm btn-primary">Edit</a>
                         <form action="{{ route("SubCategory.destroy",$Subcategory->id) }}" method="POST">
                             @csrf
                             @method("DELETE")
                             {{-- <button class="btn btn-sm m-1 btn-danger delete" type="submit">Delete</button> --}}
-                            <button class=" btn btn-sm m-1 btn-danger" type="submit" onclick="return confirm('Do you want to delete this?');">Delete</button>
+                            <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Do you want to delete this?');">Delete</button>
                         </form>
                     </td>
                 </tr>

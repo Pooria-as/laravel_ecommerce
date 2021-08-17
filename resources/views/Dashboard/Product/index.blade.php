@@ -45,7 +45,7 @@
                         {{ $product->product_name}}
                     </td>
                     <td>
-                        <img src="/{{ $product->image_one }}" width="100" class="img-thumbnail"  alt="">
+                        <img src="/{{ $product->image_one }}" width="50" class="img-thumbnail"  alt="">
                     </td>
                     <td>
                         {{ $product->category->Category_name}}

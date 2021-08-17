@@ -34,20 +34,9 @@ Route::middleware("auth")->prefix('admin')->group(function () {
 });
 
 Route::get("LogOut","HomeController@logout")->name("LogOut");
-Route::get('/', function () {
-    return view("front.index");
-})->name("index");
 
-
-
-
-
-
-
+Route::get('/', "front\FrontController@index")->name("index");
 
 
 Auth::routes();
-
-
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

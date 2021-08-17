@@ -123,14 +123,28 @@
                     @enderror
                 </div>
                 <div class="col-md-4">
-                    <label for="selling_price">Selling Price</label>
-                    <input id="input" type="text"  id="selling_price"  value="{{ $Product->selling_price}}" name="selling_price" class="form-control" />
-                    @error("selling_price")
-                        <br>
-                        <span class="badge badge-danger">
-                            {{ $message }}
-                        </span>
-                    @enderror
+                    <div class="row">
+                        <div class="col-md-6">
+                         <label for="selling_price">Selling Price</label>
+                         <input id="input" type="text"  id="selling_price" value="{{ $Product->selling_price }}" name="selling_price" class="form-control"/>
+                         @error("selling_price")
+                             <br>
+                             <span class="badge badge-danger">
+                                 {{ $message }}
+                             </span>
+                         @enderror
+                        </div>
+                        <div class="col-md-6">
+                         <label for="discount_price">Discount Price</label>
+                         <input id="input" type="text" value={{ $Product->discount_price }}  id="discount_price" name="discount_price" class="form-control" />
+                         @error("discount_price")
+                             <br>
+                             <span class="badge badge-danger">
+                                 {{ $message }}
+                             </span>
+                         @enderror
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">

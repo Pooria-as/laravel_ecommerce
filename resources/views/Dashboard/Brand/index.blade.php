@@ -5,7 +5,11 @@
 @section("content")
 
 
-
+<style>
+    .dis{
+        display: flex;
+    }
+</style>
 
 <div class="card">
 
@@ -45,12 +49,12 @@
                     <td>
                         <img src="/{{ $Brand->Brand_logo }}" width="50" alt="">
                     </td>
-                    <td>
+                    <td class="dis">
                         <a href="{{ route("Brand.edit",$Brand->id) }}" class="btn btn-sm btn-primary">Edit</a>
                         <form action="{{ route("Brand.destroy",$Brand->id) }}" method="POST">
                             @csrf
                             @method("DELETE")
-                            <button class=" btn btn-sm m-1 btn-danger" type="submit" onclick="return confirm('Do you want to delete this?');">Delete</button>
+                            <button class=" btn btn-sm  btn-danger" type="submit" onclick="return confirm('Do you want to delete this?');">Delete</button>
                         </form>
                     </td>
                 </tr>
