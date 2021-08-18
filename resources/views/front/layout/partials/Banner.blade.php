@@ -1,3 +1,5 @@
+
+</style>
 <div class="banner_2">
     <div class="banner_2_background" style="background-image:url(images/banner_2_background.jpg)"></div>
     <div class="banner_2_container">
@@ -27,7 +29,7 @@
                             </div>
                             <div class="col-lg-8 col-md-6">
                                 <div>
-                                    <div><img src="/{{  $mid_slider->image_one }}" width="100"  alt=""></div>
+                                    <div><img class="w" src="/{{  $mid_slider->image_one }}"   alt=""></div>
                                 </div>
                             </div>
                         </div>

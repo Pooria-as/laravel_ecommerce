@@ -3,7 +3,7 @@
 
 
 @section("content")
-
+@include("front.layout.partials.HeaderMian")
 <div class="banner">
     <div class="banner_background" style="background-image:url(images/banner_background.jpg)"></div>
     <div class="container fill_height">

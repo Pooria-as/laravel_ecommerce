@@ -18,7 +18,7 @@ Route::middleware("auth")->get('admin', function () {
     return view("Dashboard.layout.master");
 });
 
-Route::middleware("auth")->prefix('admin')->group(function () {
+Route::prefix('admin')->group(function () {
     Route::resource('Category', "Admin\Category\CategoryController");
     Route::resource('Brand',"Admin\Category\BrandController");
     Route::resource('SubCategory',"Admin\Category\SubCategoryController");
@@ -30,13 +30,13 @@ Route::middleware("auth")->prefix('admin')->group(function () {
     Route::get('/get/subcategory/{category_id}',"Admin\Product\ProductController@getSubCategory")->name("getSubcategory");
     Route::resource('Post',"Admin\PostController");
     Route::resource('BlogCategory',"Admin\BlogCategoryController");
-
 });
 
 Route::get("LogOut","HomeController@logout")->name("LogOut");
-
+Route::get("ChangePassword","HomeController@changePassword")->name("ChnageUserPassword");
+Route::post("UpdatePasswordUser","HomeController@updatePassword")->name("UpdatePasswordUser");
 Route::get('/', "front\FrontController@index")->name("index");
 
 
-Auth::routes();
+Auth::routes(["verify"=>true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

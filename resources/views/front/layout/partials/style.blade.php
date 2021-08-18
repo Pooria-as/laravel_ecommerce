@@ -8,3 +8,9 @@
 <link rel="stylesheet" type="text/css" href="/styles/responsive.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
+<style>
+    .w{
+        height: 500px !important;
+        width: 500px !important;
+    }
+</style>
