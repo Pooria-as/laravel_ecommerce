@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware("auth")->get('admin', function () {
-    return view("Dashboard.layout.master");
-});
+// Route::middleware("auth")->get('admin', function () {
+//     return view("Dashboard.layout.master");
+// });
 
 Route::prefix('admin')->group(function () {
     Route::resource('Category', "Admin\Category\CategoryController");
@@ -32,11 +32,21 @@ Route::prefix('admin')->group(function () {
     Route::resource('BlogCategory',"Admin\BlogCategoryController");
 });
 
+
+//admin guard
+
+Route::get("admin","AdminController@index");
+
+
+// Route::get("admin/LogOut","AdminController@AdminLogOut")->name("AdminLogOut");;
+Route::get("admin","AdminController@index");
+Route::get('admin/login',"Admin\LoginController@showLoginForm")->name("admin.showLoginForm");
+Route::post('admin/login',"Admin\LoginController@showLoginForm");
+
+
 Route::get("LogOut","HomeController@logout")->name("LogOut");
 Route::get("ChangePassword","HomeController@changePassword")->name("ChnageUserPassword");
 Route::post("UpdatePasswordUser","HomeController@updatePassword")->name("UpdatePasswordUser");
 Route::get('/', "front\FrontController@index")->name("index");
-
-
 Auth::routes(["verify"=>true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

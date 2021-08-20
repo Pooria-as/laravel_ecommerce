@@ -18,6 +18,7 @@
 
 	<!-- Header -->
 	@include("front.layout.partials.Header")
+
 	<!-- Banner -->
     @yield('content')
 	<!-- Footer -->
