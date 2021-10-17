@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
 
-    public function __construct()
-    {
-        return $this->middleware("auth:admin");
-    }
+    // public function __construct()
+    // {
+    //     return $this->middleware("auth:admin");
+    // }
     public function index()
     {
         return view("Dashboard.layout.master");

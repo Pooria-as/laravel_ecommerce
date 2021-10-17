@@ -34,12 +34,10 @@ Route::prefix('admin')->group(function () {
 
 
 //admin guard
-
 Route::get("admin","AdminController@index");
-
-
 // Route::get("admin/LogOut","AdminController@AdminLogOut")->name("AdminLogOut");;
-Route::get("admin","AdminController@index");
+
+Route::get("admin","Admin   Controller@index");
 Route::get('admin/login',"Admin\LoginController@showLoginForm")->name("admin.showLoginForm");
 Route::post('admin/login',"Admin\LoginController@showLoginForm");
 
